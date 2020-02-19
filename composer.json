@@ -14,6 +14,8 @@
         "issues": "https://github.com/maileryio/yii-dataview/issues",
         "wiki": "https://github.com/maileryio/yii-dataview/wiki"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^7.4",
         "yiisoft/data": "^3.0@dev"
