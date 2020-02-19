@@ -1,5 +1,5 @@
 {
-    "name": "maileryio/mailery-dataview",
+    "name": "maileryio/yii-dataview",
     "type": "library",
     "description": "Data view for Yii3 framework",
     "keywords": [
