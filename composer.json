@@ -1,0 +1,49 @@
+{
+    "name": "maileryio/mailery-dataview",
+    "type": "library",
+    "description": "Data view for Yii3 framework",
+    "keywords": [
+        "yii",
+        "dataview"
+    ],
+    "homepage": "https://github.com/maileryio/yii-dataview",
+    "license": "BSD-3-Clause",
+    "support": {
+        "email": "imaliy.filsh@gmail.com",
+        "source": "https://github.com/maileryio/yii-dataview",
+        "issues": "https://github.com/maileryio/yii-dataview/issues",
+        "wiki": "https://github.com/maileryio/yii-dataview/wiki"
+    },
+    "require": {
+        "php": "^7.4",
+        "yiisoft/data": "^3.0@dev"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "phan/phan": "^2.4",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mailery\\Dataview\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mailery\\Dataview\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "lint": "php-cs-fixer fix --diff --dry-run",
+        "fix": "php-cs-fixer fix",
+        "phan": "phan --progress-bar -o analysis.txt"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
