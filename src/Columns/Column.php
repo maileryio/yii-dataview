@@ -1,8 +1,8 @@
 <?php
 
-namespace Amlsoft\Dataview\Columns;
+namespace Mailery\Dataview\Columns;
 
-use Amlsoft\Dataview\ColumnInterface;
+use Mailery\Dataview\ColumnInterface;
 use Yiisoft\Html\Html;
 
 abstract class Column implements ColumnInterface

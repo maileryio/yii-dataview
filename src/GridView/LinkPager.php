@@ -1,8 +1,8 @@
 <?php
 
-namespace Amlsoft\Dataview\GridView;
+namespace Mailery\Dataview\GridView;
 
-use Amlsoft\Dataview\Paginator\OffsetPaginator;
+use Mailery\Dataview\Paginator\OffsetPaginator;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Widget\Widget;
 use Yiisoft\Html\Html;

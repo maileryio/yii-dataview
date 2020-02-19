@@ -1,6 +1,6 @@
 <?php
 
-namespace Amlsoft\Dataview\Columns;
+namespace Mailery\Dataview\Columns;
 
 use Yiisoft\Html\Html;
 

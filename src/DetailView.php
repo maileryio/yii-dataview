@@ -1,6 +1,6 @@
 <?php
 
-namespace Amlsoft\Dataview;
+namespace Mailery\Dataview;
 
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Widget\Widget;
