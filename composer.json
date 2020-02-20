@@ -18,7 +18,8 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.4",
-        "yiisoft/data": "^3.0@dev"
+        "yiisoft/data": "^3.0@dev",
+        "yiisoft/i18n-formatter-intl": "^3.0@dev"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",

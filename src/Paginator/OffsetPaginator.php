@@ -48,7 +48,7 @@ final class OffsetPaginator implements PaginatorInterface
         return $this->currentPage;
     }
 
-    public function withCurrentPage(int $page)
+    public function withCurrentPage(int $page): self
     {
         if ($page < 1) {
             throw new \InvalidArgumentException('Current page should be at least 1');
@@ -59,7 +59,7 @@ final class OffsetPaginator implements PaginatorInterface
         return $new;
     }
 
-    public function withPageSize(int $size)
+    public function withPageSize(int $size): self
     {
         if ($size < 1) {
             throw new \InvalidArgumentException('Page size should be at least 1');
@@ -80,12 +80,12 @@ final class OffsetPaginator implements PaginatorInterface
         return $this->currentPage === $this->getTotalPages();
     }
 
-    public function getPageSize()
+    public function getPageSize(): int
     {
         return $this->pageSize;
     }
 
-    public function getTotalCount()
+    public function getTotalCount(): int
     {
         if ($this->totalCountCache === null) {
             $this->totalCountCache = $this->dataReader->count();
@@ -122,12 +122,12 @@ final class OffsetPaginator implements PaginatorInterface
         return $this->isOnFirstPage() ? null : (string) ($this->currentPage - 1);
     }
 
-    public function withNextPageToken(?string $token)
+    public function withNextPageToken(?string $token): self
     {
         return $this->withCurrentPage((int)$token);
     }
 
-    public function withPreviousPageToken(?string $token)
+    public function withPreviousPageToken(?string $token): self
     {
         return $this->withCurrentPage((int)$token);
     }

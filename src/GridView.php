@@ -93,12 +93,12 @@ class GridView extends Widget
     /**
      * @var \Closure
      */
-    private \Closure $beforeRow;
+    private $beforeRow;
 
     /**
      * @var \Closure
      */
-    private \Closure $afterRow;
+    private $afterRow;
 
     /**
      * @param ColumnInterface[] $columns

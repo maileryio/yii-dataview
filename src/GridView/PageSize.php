@@ -5,6 +5,7 @@ namespace Mailery\Dataview\GridView;
 use Yiisoft\Html\Html;
 use Yiisoft\Widget\Widget;
 use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\I18n\TranslatorInterface;
 use FormManager\Factory as F;
 
 /**
@@ -46,6 +47,20 @@ class PageSize extends Widget
      * @var array
      */
     private array $inputOptions = [];
+
+    /**
+     *
+     * @var type @var TranslatorInterface
+     */
+    private TranslatorInterface $translator;
+
+    /**
+     * @param TranslatorInterface $translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
 
     /**
      * @param string $caption
@@ -103,7 +118,7 @@ class PageSize extends Widget
         $input = F::select(null, $this->sizes, $inputOptions);
 
         if (($content = $this->caption) === null) {
-            $content = __('Show {input} entries', 'dataview');
+            $content = $this->translator->translate('Show {input} entries', [], 'dataview');
         }
 
         return Html::tag($tag, strtr($content, ['{input}' => $input]), $options);

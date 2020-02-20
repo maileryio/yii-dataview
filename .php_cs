@@ -4,7 +4,7 @@ $date = date('Y');
 $header = <<<EOF
 Data view for Yii3 framework
 @link      https://github.com/maileryio/yiii-dataview
-@package   Mailery\Backend
+@package   Mailery\Dataview
 @license   BSD-3-Clause
 @copyright Copyright (c) {$date}, Mailery (https://mailery.io/)
 EOF;

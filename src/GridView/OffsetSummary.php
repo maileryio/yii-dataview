@@ -6,6 +6,7 @@ use App\Factory\I18nFactory;
 use Mailery\Dataview\Paginator\OffsetPaginator;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\I18n\MessageFormatterInterface;
+use Yiisoft\I18n\TranslatorInterface;
 use Yiisoft\Html\Html;
 use Yiisoft\Widget\Widget;
 
@@ -15,7 +16,7 @@ class OffsetSummary extends Widget
     /**
      * @var string|null
      */
-    private ?string $summary;
+    private $summary;
 
     /**
      * @var array
@@ -28,12 +29,23 @@ class OffsetSummary extends Widget
     private OffsetPaginator $paginator;
 
     /**
+     *
+     * @var type @var TranslatorInterface
+     */
+    private TranslatorInterface $translator;
+
+    /**
      * @var MessageFormatterInterface
      */
     private MessageFormatterInterface $formatter;
 
-    public function __construct(MessageFormatterInterface $formatter)
+    /**
+     * @param TranslatorInterface $translator
+     * @param MessageFormatterInterface $formatter
+     */
+    public function __construct(TranslatorInterface $translator, MessageFormatterInterface $formatter)
     {
+        $this->translator = $translator;
         $this->formatter = $formatter;
     }
 
@@ -91,16 +103,16 @@ class OffsetSummary extends Widget
             }
 
             if (($content = $this->summary) === null) {
-                $content = __(
+                $content = $this->translator->translate(
                     'Showing {begin, number} to {end, number} of {totalCount, number} {totalCount, plural, one{item} other{items}}',
-                    'dataview',
                     [
                         'begin'      => $begin,
                         'end'        => $end,
                         'totalCount' => $totalCount,
                         'page'       => $page,
                         'pageCount'  => $pageCount,
-                    ]
+                    ],
+                    'dataview'
                 );
                 return Html::tag($tag, $content, $options);
             }
@@ -109,22 +121,22 @@ class OffsetSummary extends Widget
             $end = $totalCount;
 
             if (($content = $this->summary) === null) {
-                $content = __(
+                $content = $this->translator->translate(
                     'Total {totalCount, number} {totalCount, plural, one{item} other{items}}',
-                    'dataview',
                     [
                         'begin'      => $begin,
                         'end'        => $end,
                         'totalCount' => $totalCount,
                         'page'       => $page,
                         'pageCount'  => $pageCount,
-                    ]
+                    ],
+                    'dataview'
                 );
                 return Html::tag($tag, $content, $options);
             }
         }
 
-        return I18nFactory::format(
+        return $this->formatter->format(
             $content,
             [
                 'begin'      => $begin,
