@@ -1,9 +1,10 @@
 {
     "name": "maileryio/widget-dataview",
     "type": "library",
-    "description": "Data view for Yii3 framework",
+    "description": "Dataview widget for Mailery Platform",
     "keywords": [
         "yii",
+        "widget",
         "dataview"
     ],
     "homepage": "https://github.com/maileryio/widget-dataview",
@@ -28,12 +29,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Mailery\\Dataview\\": "src"
+            "Mailery\\Widget\\Dataview\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Mailery\\Dataview\\Tests\\": "tests"
+            "Mailery\\Widget\\Dataview\\Tests\\": "tests"
         }
     },
     "scripts": {

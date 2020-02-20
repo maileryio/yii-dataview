@@ -1,6 +1,6 @@
 <?php
 
-namespace Mailery\Dataview;
+namespace Mailery\Widget\Dataview;
 
 interface ColumnInterface
 {

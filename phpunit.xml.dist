@@ -11,7 +11,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="Yii dataview tests">
+        <testsuite name="Mailery widget dataview tests">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>

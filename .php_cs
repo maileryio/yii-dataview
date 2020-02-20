@@ -2,9 +2,9 @@
 
 $date = date('Y');
 $header = <<<EOF
-Data view for Yii3 framework
-@link      https://github.com/maileryio/yiii-dataview
-@package   Mailery\Dataview
+Dataview widget for Mailery Platform
+@link      https://github.com/maileryio/widget-dataview
+@package   Mailery\Widget\Dataview
 @license   BSD-3-Clause
 @copyright Copyright (c) {$date}, Mailery (https://mailery.io/)
 EOF;

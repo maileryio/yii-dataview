@@ -1,6 +1,6 @@
-# Data view for Yii3 framework
+# Dataview widget for Mailery Platform
 
-**Data view for Yii3 framework**
+**Dataview widget for Mailery Platform**
 
 [![Latest Stable Version](https://poser.pugx.org/maileryio/widget-dataview/v/stable)](https://packagist.org/packages/maileryio/widget-dataview)
 [![Total Downloads](https://poser.pugx.org/maileryio/widget-dataview/downloads)](https://packagist.org/packages/maileryio/widget-dataview)
@@ -8,7 +8,7 @@
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/maileryio/widget-dataview.svg)](https://scrutinizer-ci.com/g/maileryio/widget-dataview/)
 [![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/maileryio/widget-dataview.svg)](https://scrutinizer-ci.com/g/maileryio/widget-dataview/)
 
-Data view for Yii3 framework
+Dataview widget for Mailery Platform
 
 ## Installation
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mailery\Dataview\Paginator;
+namespace Mailery\Widget\Dataview\Paginator;
 
 use Yiisoft\Data\Reader\CountableDataInterface;
 use Yiisoft\Data\Reader\DataReaderInterface;

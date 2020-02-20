@@ -1,4 +1,4 @@
-# Yii Dataview Change Log
+# Mailery Widget Dataview Change Log
 
 ## 1.0.0 under development
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Mailery\Dataview\Columns;
+namespace Mailery\Widget\Dataview\Columns;
 
-use Mailery\Dataview\Paginator\OffsetPaginator;
+use Mailery\Widget\Dataview\Paginator\OffsetPaginator;
 use Yiisoft\Html\Html;
 
 class SerialColumn extends Column

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mailery\Dataview\GridView;
+namespace Mailery\Widget\Dataview\GridView;
 
 use Yiisoft\Html\Html;
 use Yiisoft\Widget\Widget;
