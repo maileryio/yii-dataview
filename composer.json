@@ -1,18 +1,18 @@
 {
-    "name": "maileryio/yii-dataview",
+    "name": "maileryio/widget-dataview",
     "type": "library",
     "description": "Data view for Yii3 framework",
     "keywords": [
         "yii",
         "dataview"
     ],
-    "homepage": "https://github.com/maileryio/yii-dataview",
+    "homepage": "https://github.com/maileryio/widget-dataview",
     "license": "BSD-3-Clause",
     "support": {
         "email": "imaliy.filsh@gmail.com",
-        "source": "https://github.com/maileryio/yii-dataview",
-        "issues": "https://github.com/maileryio/yii-dataview/issues",
-        "wiki": "https://github.com/maileryio/yii-dataview/wiki"
+        "source": "https://github.com/maileryio/widget-dataview",
+        "issues": "https://github.com/maileryio/widget-dataview/issues",
+        "wiki": "https://github.com/maileryio/widget-dataview/wiki"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

@@ -2,11 +2,11 @@
 
 **Data view for Yii3 framework**
 
-[![Latest Stable Version](https://poser.pugx.org/maileryio/yii-dataview/v/stable)](https://packagist.org/packages/maileryio/yii-dataview)
-[![Total Downloads](https://poser.pugx.org/maileryio/yii-dataview/downloads)](https://packagist.org/packages/maileryio/yii-dataview)
-[![Build Status](https://travis-ci.com/maileryio/yii-dataview.svg?branch=master)](https://travis-ci.com/maileryio/yii-dataview)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/maileryio/yii-dataview.svg)](https://scrutinizer-ci.com/g/maileryio/yii-dataview/)
-[![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/maileryio/yii-dataview.svg)](https://scrutinizer-ci.com/g/maileryio/yii-dataview/)
+[![Latest Stable Version](https://poser.pugx.org/maileryio/widget-dataview/v/stable)](https://packagist.org/packages/maileryio/widget-dataview)
+[![Total Downloads](https://poser.pugx.org/maileryio/widget-dataview/downloads)](https://packagist.org/packages/maileryio/widget-dataview)
+[![Build Status](https://travis-ci.com/maileryio/widget-dataview.svg?branch=master)](https://travis-ci.com/maileryio/widget-dataview)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/maileryio/widget-dataview.svg)](https://scrutinizer-ci.com/g/maileryio/widget-dataview/)
+[![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/maileryio/widget-dataview.svg)](https://scrutinizer-ci.com/g/maileryio/widget-dataview/)
 
 Data view for Yii3 framework
 
@@ -17,13 +17,13 @@ The preferred way to install this library is through [composer](http://getcompos
 Either run
 
 ```sh
-php composer.phar require "maileryio/yii-dataview"
+php composer.phar require "maileryio/widget-dataview"
 ```
 
 or add
 
 ```json
-"maileryio/yii-dataview": "*"
+"maileryio/widget-dataview": "*"
 ```
 
 to the require section of your composer.json.
