@@ -36,7 +36,7 @@ abstract class Column implements ColumnInterface
     /**
      * @var array|\Closure
      */
-    protected $contentOptions = [];
+    protected array $contentOptions = [];
 
     /**
      * @var string
