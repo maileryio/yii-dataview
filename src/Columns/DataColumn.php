@@ -1,24 +1,34 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview\Columns;
 
 use Yiisoft\Html\Html;
 
 class DataColumn extends Column
 {
-
     /**
-     * @var string|\Closure
+     * @var \Closure|string
      */
     private $content;
 
     /**
-     * @param string|\Closure $content
+     * @param \Closure|string $content
      * @return $this
      */
     public function content($content)
     {
         $this->content = $content;
+
         return $this;
     }
 
@@ -47,5 +57,4 @@ class DataColumn extends Column
 
         return Html::tag('td', $content, $options);
     }
-
 }

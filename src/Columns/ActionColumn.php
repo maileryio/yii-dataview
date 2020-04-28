@@ -1,24 +1,33 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview\Columns;
 
 use Yiisoft\Html\Html;
 
 class ActionColumn extends Column
 {
-
     /**
-     * @var string|\Closure
+     * @var \Closure|string
      */
     protected $view;
 
     /**
-     * @var string|\Closure
+     * @var \Closure|string
      */
     protected $update;
 
     /**
-     * @var string|\Closure
+     * @var \Closure|string
      */
     protected $delete;
 
@@ -28,32 +37,35 @@ class ActionColumn extends Column
     protected string $layout = '{view} {update} {delete}';
 
     /**
-     * @param string|\Closure $view
+     * @param \Closure|string $view
      * @return $this
      */
     public function view($view)
     {
         $this->view = $view;
+
         return $this;
     }
 
     /**
-     * @param string|\Closure $update
+     * @param \Closure|string $update
      * @return $this
      */
     public function update($update)
     {
         $this->update = $update;
+
         return $this;
     }
 
     /**
-     * @param string|\Closure $delete
+     * @param \Closure|string $delete
      * @return $this
      */
     public function delete($delete)
     {
         $this->delete = $delete;
+
         return $this;
     }
 
@@ -64,6 +76,7 @@ class ActionColumn extends Column
     public function layout(string $layout)
     {
         $this->layout = $layout;
+
         return $this;
     }
 
@@ -82,7 +95,7 @@ class ActionColumn extends Column
 
         $content = preg_replace_callback(
             '/{\\w+}/',
-            function ($matches) use($data, $index) {
+            function ($matches) use ($data, $index) {
                 $content = $this->renderSection($matches[0], $data, $index);
 
                 if ($content instanceof \Closure) {
@@ -127,7 +140,7 @@ class ActionColumn extends Column
         if ($content instanceof \Closure) {
             $content = call_user_func($content, $data, $index, $this);
         }
+
         return $content;
     }
-
 }

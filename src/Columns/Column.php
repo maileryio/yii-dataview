@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview\Columns;
 
 use Mailery\Widget\Dataview\ColumnInterface;
@@ -7,7 +17,6 @@ use Yiisoft\Html\Html;
 
 abstract class Column implements ColumnInterface
 {
-
     /**
      * @var string
      */
@@ -50,6 +59,7 @@ abstract class Column implements ColumnInterface
     public function header(string $header)
     {
         $this->header = $header;
+
         return $this;
     }
 
@@ -60,6 +70,7 @@ abstract class Column implements ColumnInterface
     public function footer(string $footer)
     {
         $this->footer = $footer;
+
         return $this;
     }
 
@@ -70,6 +81,7 @@ abstract class Column implements ColumnInterface
     public function options(array $options)
     {
         $this->options = $options;
+
         return $this;
     }
 
@@ -80,6 +92,7 @@ abstract class Column implements ColumnInterface
     public function headerOptions(array $headerOptions)
     {
         $this->headerOptions = $headerOptions;
+
         return $this;
     }
 
@@ -90,6 +103,7 @@ abstract class Column implements ColumnInterface
     public function footerOptions(array $footerOptions)
     {
         $this->footerOptions = $footerOptions;
+
         return $this;
     }
 
@@ -100,16 +114,18 @@ abstract class Column implements ColumnInterface
     public function contentOptions($contentOptions)
     {
         $this->contentOptions = $contentOptions;
+
         return $this;
     }
 
     /**
-     * @param string|bool $emptyText
+     * @param bool|string $emptyText
      * @return $this
      */
     public function emptyText($emptyText)
     {
         $this->emptyText = $emptyText;
+
         return $this;
     }
 
@@ -140,5 +156,4 @@ abstract class Column implements ColumnInterface
     {
         return Html::tag('td', $this->footer, $this->footerOptions);
     }
-
 }

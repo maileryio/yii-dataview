@@ -1,12 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview\GridView;
 
-use Yiisoft\Html\Html;
-use Yiisoft\Widget\Widget;
-use Yiisoft\Arrays\ArrayHelper;
-use Yiisoft\I18n\TranslatorInterface;
 use FormManager\Factory as F;
+use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
+use Yiisoft\I18n\TranslatorInterface;
+use Yiisoft\Widget\Widget;
 
 /**
  * ```php
@@ -23,7 +33,6 @@ use FormManager\Factory as F;
  */
 class PageSize extends Widget
 {
-
     /**
      * @var string|null
      */
@@ -49,7 +58,6 @@ class PageSize extends Widget
     private array $inputOptions = [];
 
     /**
-     *
      * @var type @var TranslatorInterface
      */
     private TranslatorInterface $translator;
@@ -69,6 +77,7 @@ class PageSize extends Widget
     public function caption(string $caption)
     {
         $this->caption = $caption;
+
         return $this;
     }
 
@@ -79,6 +88,7 @@ class PageSize extends Widget
     public function sizes(array $sizes)
     {
         $this->sizes = $sizes;
+
         return $this;
     }
 
@@ -89,6 +99,7 @@ class PageSize extends Widget
     public function options(array $options)
     {
         $this->options = $options;
+
         return $this;
     }
 
@@ -99,11 +110,12 @@ class PageSize extends Widget
     public function inputOptions(array $inputOptions)
     {
         $this->inputOptions = $inputOptions;
+
         return $this;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function render(): string
     {
@@ -123,5 +135,4 @@ class PageSize extends Widget
 
         return Html::tag($tag, strtr($content, ['{input}' => $input]), $options);
     }
-
 }

@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview\Columns;
 
 use Mailery\Widget\Dataview\Paginator\OffsetPaginator;
@@ -7,7 +17,6 @@ use Yiisoft\Html\Html;
 
 class SerialColumn extends Column
 {
-
     /**
      * @var OffsetPaginator
      */
@@ -20,6 +29,7 @@ class SerialColumn extends Column
     public function paginator(OffsetPaginator $paginator)
     {
         $this->paginator = $paginator;
+
         return $this;
     }
 
@@ -41,5 +51,4 @@ class SerialColumn extends Column
 
         return Html::tag('td', $content, $options);
     }
-
 }

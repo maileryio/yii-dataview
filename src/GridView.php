@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview;
 
 use Yiisoft\Arrays\ArrayHelper;
@@ -9,6 +19,20 @@ use Yiisoft\Widget\Widget;
 
 class GridView extends Widget
 {
+    /**
+     * @var bool
+     */
+    public bool $showHeader = true;
+
+    /**
+     * @var bool
+     */
+    public bool $showFooter = false;
+
+    /**
+     * @var bool
+     */
+    public bool $placeFooterAfterBody = false;
 
     /**
      * @var ColumnInterface[]
@@ -41,7 +65,7 @@ class GridView extends Widget
     private bool $showOnEmpty = false;
 
     /**
-     * @var string|false
+     * @var false|string
      */
     private $emptyText = '';
 
@@ -59,21 +83,6 @@ class GridView extends Widget
      * @var array
      */
     private array $captionOptions = [];
-
-    /**
-     * @var bool
-     */
-    public bool $showHeader = true;
-
-    /**
-     * @var bool
-     */
-    public bool $showFooter = false;
-
-    /**
-     * @var bool
-     */
-    public bool $placeFooterAfterBody = false;
 
     /**
      * @var array
@@ -106,6 +115,7 @@ class GridView extends Widget
     public function columns(array $columns)
     {
         $this->columns = $columns;
+
         return $this;
     }
 
@@ -116,6 +126,7 @@ class GridView extends Widget
     public function paginator(PaginatorInterface $paginator)
     {
         $this->paginator = $paginator;
+
         return $this;
     }
 
@@ -126,6 +137,7 @@ class GridView extends Widget
     public function options(array $options)
     {
         $this->options = $options;
+
         return $this;
     }
 
@@ -136,6 +148,7 @@ class GridView extends Widget
     public function headerRowOptions(array $headerRowOptions)
     {
         $this->headerRowOptions = $headerRowOptions;
+
         return $this;
     }
 
@@ -146,6 +159,7 @@ class GridView extends Widget
     public function footerRowOptions(array $footerRowOptions)
     {
         $this->footerRowOptions = $footerRowOptions;
+
         return $this;
     }
 
@@ -156,16 +170,18 @@ class GridView extends Widget
     public function showOnEmpty(bool $showOnEmpty)
     {
         $this->showOnEmpty = $showOnEmpty;
+
         return $this;
     }
 
     /**
-     * @param string|bool $emptyText
+     * @param bool|string $emptyText
      * @return $this
      */
     public function emptyText($emptyText)
     {
         $this->emptyText = $emptyText;
+
         return $this;
     }
 
@@ -176,6 +192,7 @@ class GridView extends Widget
     public function emptyTextOptions(array $emptyTextOptions)
     {
         $this->emptyTextOptions = $emptyTextOptions;
+
         return $this;
     }
 
@@ -186,6 +203,7 @@ class GridView extends Widget
     public function caption(string $caption)
     {
         $this->caption = $caption;
+
         return $this;
     }
 
@@ -196,6 +214,7 @@ class GridView extends Widget
     public function captionOptions(array $captionOptions)
     {
         $this->captionOptions = $captionOptions;
+
         return $this;
     }
 
@@ -206,6 +225,7 @@ class GridView extends Widget
     public function tableOptions(array $tableOptions)
     {
         $this->tableOptions = $tableOptions;
+
         return $this;
     }
 
@@ -216,6 +236,7 @@ class GridView extends Widget
     public function headOptions(array $headOptions)
     {
         $this->headOptions = $headOptions;
+
         return $this;
     }
 
@@ -226,6 +247,7 @@ class GridView extends Widget
     public function rowOptions($rowOptions)
     {
         $this->rowOptions = $rowOptions;
+
         return $this;
     }
 
@@ -236,6 +258,7 @@ class GridView extends Widget
     public function beforeRow(\Closure $beforeRow)
     {
         $this->beforeRow = $beforeRow;
+
         return $this;
     }
 
@@ -246,6 +269,7 @@ class GridView extends Widget
     public function afterRow(\Closure $afterRow)
     {
         $this->afterRow = $afterRow;
+
         return $this;
     }
 
@@ -256,6 +280,7 @@ class GridView extends Widget
     public function showHeader(bool $showHeader)
     {
         $this->showHeader = $showHeader;
+
         return $this;
     }
 
@@ -266,6 +291,7 @@ class GridView extends Widget
     public function showFooter(bool $showFooter)
     {
         $this->showFooter = $showFooter;
+
         return $this;
     }
 
@@ -276,6 +302,7 @@ class GridView extends Widget
     public function placeFooterAfterBody(bool $placeFooterAfterBody)
     {
         $this->placeFooterAfterBody = $placeFooterAfterBody;
+
         return $this;
     }
 
@@ -345,6 +372,7 @@ class GridView extends Widget
         if (!empty($this->caption)) {
             return Html::tag('caption', $this->caption, $this->captionOptions);
         }
+
         return null;
     }
 
@@ -401,7 +429,7 @@ class GridView extends Widget
 //        if ($this->filterPosition === self::FILTER_POS_FOOTER) {
 //            $content .= $this->renderFilters();
 //        }
-        return "<tfoot>\n".$content."\n</tfoot>";
+        return "<tfoot>\n" . $content . "\n</tfoot>";
     }
 
     /**
@@ -429,9 +457,11 @@ class GridView extends Widget
         }
         if (empty($rows) && $this->emptyText !== false) {
             $colspan = count($this->columns);
-            return "<tbody>\n<tr><td colspan=\"$colspan\">".$this->renderEmpty()."</td></tr>\n</tbody>";
+
+            return "<tbody>\n<tr><td colspan=\"$colspan\">" . $this->renderEmpty() . "</td></tr>\n</tbody>";
         }
-        return "<tbody>\n".implode("\n", $rows)."\n</tbody>";
+
+        return "<tbody>\n" . implode("\n", $rows) . "\n</tbody>";
     }
 
     /**
@@ -459,5 +489,4 @@ class GridView extends Widget
 
         return Html::tag('tr', implode('', $cells), $options);
     }
-
 }

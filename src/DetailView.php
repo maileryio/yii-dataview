@@ -1,14 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview;
 
 use Yiisoft\Arrays\ArrayHelper;
-use Yiisoft\Widget\Widget;
 use Yiisoft\Html\Html;
+use Yiisoft\Widget\Widget;
 
 class DetailView extends Widget
 {
-
     /**
      * @var mixed
      */
@@ -32,7 +41,7 @@ class DetailView extends Widget
     private string $template = '<tr><th{captionOptions}>{label}</th><td{contentOptions}>{value}</td></tr>';
 
     /**
-     * @var string|false
+     * @var false|string
      */
     private $emptyText = '';
 
@@ -48,6 +57,7 @@ class DetailView extends Widget
     public function data($data)
     {
         $this->data = $data;
+
         return $this;
     }
 
@@ -58,6 +68,7 @@ class DetailView extends Widget
     public function options(array $options)
     {
         $this->options = $options;
+
         return $this;
     }
 
@@ -68,6 +79,7 @@ class DetailView extends Widget
     public function attributes(array $attributes)
     {
         $this->attributes = $attributes;
+
         return $this;
     }
 
@@ -78,16 +90,18 @@ class DetailView extends Widget
     public function template(string $template)
     {
         $this->template = $template;
+
         return $this;
     }
 
     /**
-     * @param string|bool $emptyText
+     * @param bool|string $emptyText
      * @return $this
      */
     public function emptyText($emptyText)
     {
         $this->emptyText = $emptyText;
+
         return $this;
     }
 
@@ -98,6 +112,7 @@ class DetailView extends Widget
     public function emptyTextOptions(array $emptyTextOptions)
     {
         $this->emptyTextOptions = $emptyTextOptions;
+
         return $this;
     }
 
@@ -114,6 +129,7 @@ class DetailView extends Widget
 
         $options = $this->options;
         $tag = ArrayHelper::remove($options, 'tag', 'table');
+
         return Html::tag($tag, implode("\n", $rows), $options);
     }
 
@@ -164,5 +180,4 @@ class DetailView extends Widget
 
         return Html::tag($tag, $this->emptyText, $options);
     }
-
 }

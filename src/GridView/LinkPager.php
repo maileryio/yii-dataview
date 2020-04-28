@@ -1,32 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview\GridView;
 
 use Mailery\Widget\Dataview\Paginator\OffsetPaginator;
 use Yiisoft\Arrays\ArrayHelper;
-use Yiisoft\Widget\Widget;
 use Yiisoft\Html\Html;
+use Yiisoft\Widget\Widget;
 
 class LinkPager extends Widget
 {
-
-    /**
-     * @var Pagination the paginator object that this pager is associated with.
-     * You must set this property in order to make LinkPager work.
-     */
-    private OffsetPaginator $paginator;
-
-    /**
-     * @var array HTML attributes for the pager container tag.
-     * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
-     */
-    private array $options = [];
-
-    /**
-     * @var type
-     */
-    private \Closure $urlGenerator;
-
     /**
      * @var array HTML attributes for the pager list tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
@@ -95,26 +87,14 @@ class LinkPager extends Widget
     public $maxButtonCount = 10;
 
     /**
-     * @var string|bool the label for the "next" page button. Note that this will NOT be HTML-encoded.
-     * If this property is false, the "next" page button will not be displayed.
-     */
-    private $nextPageLabel = "<span aria-hidden=\"true\">&raquo;</span>\n<span class=\"sr-only\">Next</span>";
-
-    /**
-     * @var string|bool the text label for the "previous" page button. Note that this will NOT be HTML-encoded.
-     * If this property is false, the "previous" page button will not be displayed.
-     */
-    private $prevPageLabel = "<span aria-hidden=\"true\">&laquo;</span>\n<span class=\"sr-only\">Previous</span>";
-
-    /**
-     * @var string|bool the text label for the "first" page button. Note that this will NOT be HTML-encoded.
+     * @var bool|string the text label for the "first" page button. Note that this will NOT be HTML-encoded.
      * If it's specified as true, page number will be used as label.
      * Default is false that means the "first" page button will not be displayed.
      */
     public $firstPageLabel = false;
 
     /**
-     * @var string|bool the text label for the "last" page button. Note that this will NOT be HTML-encoded.
+     * @var bool|string the text label for the "last" page button. Note that this will NOT be HTML-encoded.
      * If it's specified as true, page number will be used as label.
      * Default is false that means the "last" page button will not be displayed.
      */
@@ -139,12 +119,42 @@ class LinkPager extends Widget
     public $disableCurrentPageButton = false;
 
     /**
+     * @var Pagination the paginator object that this pager is associated with.
+     * You must set this property in order to make LinkPager work.
+     */
+    private OffsetPaginator $paginator;
+
+    /**
+     * @var array HTML attributes for the pager container tag.
+     * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
+     */
+    private array $options = [];
+
+    /**
+     * @var type
+     */
+    private \Closure $urlGenerator;
+
+    /**
+     * @var bool|string the label for the "next" page button. Note that this will NOT be HTML-encoded.
+     * If this property is false, the "next" page button will not be displayed.
+     */
+    private $nextPageLabel = "<span aria-hidden=\"true\">&raquo;</span>\n<span class=\"sr-only\">Next</span>";
+
+    /**
+     * @var bool|string the text label for the "previous" page button. Note that this will NOT be HTML-encoded.
+     * If this property is false, the "previous" page button will not be displayed.
+     */
+    private $prevPageLabel = "<span aria-hidden=\"true\">&laquo;</span>\n<span class=\"sr-only\">Previous</span>";
+
+    /**
      * @param array $options
      * @return $this
      */
     public function options(array $options)
     {
         $this->options = $options;
+
         return $this;
     }
 
@@ -155,6 +165,7 @@ class LinkPager extends Widget
     public function paginator(OffsetPaginator $paginator)
     {
         $this->paginator = $paginator;
+
         return $this;
     }
 
@@ -165,6 +176,7 @@ class LinkPager extends Widget
     public function urlGenerator(\Closure $urlGenerator)
     {
         $this->urlGenerator = $urlGenerator;
+
         return $this;
     }
 
@@ -175,6 +187,7 @@ class LinkPager extends Widget
     public function nextPageLabel(string $nextPageLabel)
     {
         $this->nextPageLabel = $nextPageLabel;
+
         return $this;
     }
 
@@ -185,6 +198,7 @@ class LinkPager extends Widget
     public function prevPageLabel(string $prevPageLabel)
     {
         $this->prevPageLabel = $prevPageLabel;
+
         return $this;
     }
 
@@ -273,7 +287,7 @@ class LinkPager extends Widget
         }
 
         // internal pages
-        list($beginPage, $endPage) = $this->getPageRange();
+        [$beginPage, $endPage] = $this->getPageRange();
         for ($i = $beginPage; $i <= $endPage; ++$i) {
             $buttons[] = $this->renderPageButton(
                     $i + 1,
@@ -312,6 +326,7 @@ class LinkPager extends Widget
 
         $options = $this->listOptions;
         $tag = ArrayHelper::remove($options, 'tag', 'ul');
+
         return Html::tag($tag, implode("\n", $buttons), $options);
     }
 
@@ -365,5 +380,4 @@ class LinkPager extends Widget
 
         return [$beginPage, $endPage];
     }
-
 }

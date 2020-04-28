@@ -1,17 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview\GridView;
 
 use Mailery\Widget\Dataview\Paginator\OffsetPaginator;
 use Yiisoft\Arrays\ArrayHelper;
+use Yiisoft\Html\Html;
 use Yiisoft\I18n\MessageFormatterInterface;
 use Yiisoft\I18n\TranslatorInterface;
-use Yiisoft\Html\Html;
 use Yiisoft\Widget\Widget;
 
 class OffsetSummary extends Widget
 {
-
     /**
      * @var string|null
      */
@@ -28,7 +37,6 @@ class OffsetSummary extends Widget
     private OffsetPaginator $paginator;
 
     /**
-     *
      * @var type @var TranslatorInterface
      */
     private TranslatorInterface $translator;
@@ -55,6 +63,7 @@ class OffsetSummary extends Widget
     public function summary(string $summary)
     {
         $this->summary = $summary;
+
         return $this;
     }
 
@@ -65,6 +74,7 @@ class OffsetSummary extends Widget
     public function options(array $options)
     {
         $this->options = $options;
+
         return $this;
     }
 
@@ -75,11 +85,12 @@ class OffsetSummary extends Widget
     public function paginator(OffsetPaginator $paginator)
     {
         $this->paginator = $paginator;
+
         return $this;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function render(): string
     {
@@ -105,14 +116,15 @@ class OffsetSummary extends Widget
                 $content = $this->translator->translate(
                     'Showing {begin, number} to {end, number} of {totalCount, number} {totalCount, plural, one{item} other{items}}',
                     [
-                        'begin'      => $begin,
-                        'end'        => $end,
+                        'begin' => $begin,
+                        'end' => $end,
                         'totalCount' => $totalCount,
-                        'page'       => $page,
-                        'pageCount'  => $pageCount,
+                        'page' => $page,
+                        'pageCount' => $pageCount,
                     ],
                     'dataview'
                 );
+
                 return Html::tag($tag, $content, $options);
             }
         } else {
@@ -123,14 +135,15 @@ class OffsetSummary extends Widget
                 $content = $this->translator->translate(
                     'Total {totalCount, number} {totalCount, plural, one{item} other{items}}',
                     [
-                        'begin'      => $begin,
-                        'end'        => $end,
+                        'begin' => $begin,
+                        'end' => $end,
                         'totalCount' => $totalCount,
-                        'page'       => $page,
-                        'pageCount'  => $pageCount,
+                        'page' => $page,
+                        'pageCount' => $pageCount,
                     ],
                     'dataview'
                 );
+
                 return Html::tag($tag, $content, $options);
             }
         }
@@ -138,13 +151,12 @@ class OffsetSummary extends Widget
         return $this->formatter->format(
             $content,
             [
-                'begin'      => $begin,
-                'end'        => $end,
+                'begin' => $begin,
+                'end' => $end,
                 'totalCount' => $totalCount,
-                'page'       => $page,
-                'pageCount'  => $pageCount,
+                'page' => $page,
+                'pageCount' => $pageCount,
             ]
         );
     }
-
 }

@@ -1,16 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
+/**
+ * Dataview widget for Mailery Platform
+ * @link      https://github.com/maileryio/widget-dataview
+ * @package   Mailery\Widget\Dataview
+ * @license   BSD-3-Clause
+ * @copyright Copyright (c) 2020, Mailery (https://mailery.io/)
+ */
+
 namespace Mailery\Widget\Dataview\Paginator;
 
+use Yiisoft\Data\Paginator\PaginatorInterface;
 use Yiisoft\Data\Reader\CountableDataInterface;
 use Yiisoft\Data\Reader\DataReaderInterface;
 use Yiisoft\Data\Reader\OffsetableDataInterface;
-use Yiisoft\Data\Paginator\PaginatorInterface;
 
 final class OffsetPaginator implements PaginatorInterface
 {
     /**
-     * @var OffsetableDataInterface|DataReaderInterface|CountableDataInterface
+     * @var CountableDataInterface|DataReaderInterface|OffsetableDataInterface
      */
     private $dataReader;
 
@@ -43,6 +53,12 @@ final class OffsetPaginator implements PaginatorInterface
         $this->dataReader = $dataReader;
     }
 
+    public function __clone()
+    {
+        $this->readCache = null;
+        $this->totalCountCache = null;
+    }
+
     public function getCurrentPage(): int
     {
         return $this->currentPage;
@@ -56,6 +72,7 @@ final class OffsetPaginator implements PaginatorInterface
 
         $new = clone $this;
         $new->currentPage = $page;
+
         return $new;
     }
 
@@ -67,6 +84,7 @@ final class OffsetPaginator implements PaginatorInterface
 
         $new = clone $this;
         $new->pageSize = $size;
+
         return $new;
     }
 
@@ -90,17 +108,13 @@ final class OffsetPaginator implements PaginatorInterface
         if ($this->totalCountCache === null) {
             $this->totalCountCache = $this->dataReader->count();
         }
+
         return $this->totalCountCache;
     }
 
     public function getTotalPages(): int
     {
         return (int) ceil($this->getTotalCount() / $this->pageSize);
-    }
-
-    private function getOffset(): int
-    {
-        return $this->pageSize * ($this->currentPage - 1);
     }
 
     public function read(): iterable
@@ -124,24 +138,29 @@ final class OffsetPaginator implements PaginatorInterface
 
     public function withNextPageToken(?string $token): self
     {
-        return $this->withCurrentPage((int)$token);
+        return $this->withCurrentPage((int) $token);
     }
 
     public function withPreviousPageToken(?string $token): self
     {
-        return $this->withCurrentPage((int)$token);
+        return $this->withCurrentPage((int) $token);
     }
 
     public function getCurrentPageSize(): int
     {
         $this->initializeInternal();
+
         return count($this->readCache);
     }
 
-    public function __clone()
+    public function isRequired(): bool
     {
-        $this->readCache = null;
-        $this->totalCountCache = null;
+        return !$this->isOnFirstPage() || !$this->isOnLastPage();
+    }
+
+    private function getOffset(): int
+    {
+        return $this->pageSize * ($this->currentPage - 1);
     }
 
     private function initializeInternal(): void
@@ -155,10 +174,4 @@ final class OffsetPaginator implements PaginatorInterface
         }
         $this->readCache = $cache;
     }
-
-    public function isRequired(): bool
-    {
-        return !$this->isOnFirstPage() || !$this->isOnLastPage();
-    }
-
 }
