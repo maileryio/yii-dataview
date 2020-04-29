@@ -19,6 +19,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.4",
+        "foxy/foxy": "^1.0",
         "yiisoft/data": "^3.0@dev",
         "yiisoft/i18n-formatter-intl": "^3.0@dev"
     },
