@@ -55,6 +55,6 @@ class DataColumn extends Column
             $content = $this->emptyText;
         }
 
-        return Html::tag('td', $content, $options);
+        return Html::tag('td', (string) $content, $options);
     }
 }

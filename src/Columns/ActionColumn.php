@@ -141,6 +141,6 @@ class ActionColumn extends Column
             $content = call_user_func($content, $data, $index, $this);
         }
 
-        return $content;
+        return (string) $content;
     }
 }
