@@ -361,7 +361,7 @@ class LinkPager extends Widget
 
         $url = call_user_func($this->urlGenerator, ++$page);
 
-        return Html::tag($linkWrapTag, Html::a($label, $url, $linkOptions), $options);
+        return Html::tag($linkWrapTag, Html::a((string) $label, $url, $linkOptions), $options);
     }
 
     /**
