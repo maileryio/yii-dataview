@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace Mailery\Widget\Dataview\GridView;
 
-use Mailery\Widget\Dataview\Paginator\OffsetPaginator;
+use Yiisoft\Data\Paginator\OffsetPaginator;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
 use Yiisoft\Widget\Widget;
