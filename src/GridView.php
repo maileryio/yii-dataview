@@ -309,7 +309,7 @@ class GridView extends Widget
     /**
      * @return string
      */
-    public function render(): string
+    public function run(): string
     {
         $options = $this->options;
         $tag = ArrayHelper::remove($options, 'tag', 'div');

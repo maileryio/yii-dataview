@@ -15,8 +15,8 @@ namespace Mailery\Widget\Dataview\GridView;
 use Yiisoft\Data\Paginator\OffsetPaginator;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
-use Yiisoft\I18n\MessageFormatterInterface;
-use Yiisoft\I18n\TranslatorInterface;
+use Yiisoft\Translator\MessageFormatterInterface;
+use Yiisoft\Translator\TranslatorInterface;
 use Yiisoft\Widget\Widget;
 
 class OffsetSummary extends Widget
@@ -92,7 +92,7 @@ class OffsetSummary extends Widget
     /**
      * {@inheritdoc}
      */
-    public function render(): string
+    public function run(): string
     {
         $totalCount = $this->paginator->getTotalItems();
         if ($totalCount <= 0) {

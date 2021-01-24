@@ -119,7 +119,7 @@ class DetailView extends Widget
     /**
      * @return string
      */
-    public function render(): string
+    public function run(): string
     {
         $rows = [];
         $i = 0;

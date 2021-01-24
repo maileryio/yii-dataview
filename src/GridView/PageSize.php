@@ -15,7 +15,7 @@ namespace Mailery\Widget\Dataview\GridView;
 use FormManager\Factory as F;
 use Yiisoft\Arrays\ArrayHelper;
 use Yiisoft\Html\Html;
-use Yiisoft\I18n\TranslatorInterface;
+use Yiisoft\Translator\TranslatorInterface;
 use Yiisoft\Widget\Widget;
 
 /**
@@ -117,7 +117,7 @@ class PageSize extends Widget
     /**
      * {@inheritdoc}
      */
-    public function render(): string
+    public function run(): string
     {
         $options = $this->options;
         $tag = ArrayHelper::remove($options, 'tag', 'div');
