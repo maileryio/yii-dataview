@@ -14,6 +14,7 @@ namespace Mailery\Widget\Dataview\Columns;
 
 use Mailery\Widget\Dataview\ColumnInterface;
 use Yiisoft\Html\Html;
+use Yiisoft\Arrays\ArrayHelper;
 
 abstract class Column implements ColumnInterface
 {
