@@ -28,12 +28,13 @@ class DetailView extends Widget
      */
     private array $options = [
         'class' => 'table table-striped table-bordered detail-view',
+        'encode' => false,
     ];
 
     /**
      * @var array
      */
-    private array $attributes;
+    private array $attributes = [];
 
     /**
      * @var string
@@ -48,7 +49,9 @@ class DetailView extends Widget
     /**
      * @var array
      */
-    private array $emptyTextOptions = [];
+    private array $emptyTextOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @param mixed $data
@@ -67,7 +70,10 @@ class DetailView extends Widget
      */
     public function options(array $options)
     {
-        $this->options = $options;
+        $this->options = ArrayHelper::merge(
+            $this->options,
+            $options
+        );
 
         return $this;
     }
@@ -111,7 +117,10 @@ class DetailView extends Widget
      */
     public function emptyTextOptions(array $emptyTextOptions)
     {
-        $this->emptyTextOptions = $emptyTextOptions;
+        $this->emptyTextOptions = ArrayHelper::merge(
+            $this->emptyTextOptions,
+            $emptyTextOptions
+        );
 
         return $this;
     }
