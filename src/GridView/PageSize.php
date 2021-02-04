@@ -50,12 +50,16 @@ class PageSize extends Widget
     /**
      * @var array
      */
-    private array $options = [];
+    private array $options = [
+        'encode' => false,
+    ];
 
     /**
      * @var array
      */
-    private array $inputOptions = [];
+    private array $inputOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var type @var TranslatorInterface
@@ -76,7 +80,10 @@ class PageSize extends Widget
      */
     public function caption(string $caption)
     {
-        $this->caption = $caption;
+        $this->caption = ArrayHelper::merge(
+            $this->options,
+            $options
+        );
 
         return $this;
     }
@@ -109,7 +116,10 @@ class PageSize extends Widget
      */
     public function inputOptions(array $inputOptions)
     {
-        $this->inputOptions = $inputOptions;
+        $this->inputOptions = ArrayHelper::merge(
+            $this->inputOptions,
+            $inputOptions
+        );
 
         return $this;
     }

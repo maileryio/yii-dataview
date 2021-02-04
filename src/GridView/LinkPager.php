@@ -23,18 +23,27 @@ class LinkPager extends Widget
      * @var array HTML attributes for the pager list tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
-    public $listOptions = ['class' => ['pagination']];
+    public $listOptions = [
+        'class' => ['pagination'],
+        'encode' => false,
+    ];
 
     /**
      * @var array HTML attributes which will be applied to all link containers
      */
-    public $linkContainerOptions = ['class' => ['page-item']];
+    public $linkContainerOptions = [
+        'class' => ['page-item'],
+        'encode' => false,
+    ];
 
     /**
      * @var array HTML attributes for the link in a pager container tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
-    public $linkOptions = ['class' => ['page-link']];
+    public $linkOptions = [
+        'class' => ['page-link'],
+        'encode' => false,
+    ];
 
     /**
      * @var string the CSS class for the each page button.
@@ -128,7 +137,9 @@ class LinkPager extends Widget
      * @var array HTML attributes for the pager container tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
-    private array $options = [];
+    private array $options = [
+        'encode' => false,
+    ];
 
     /**
      * @var type
@@ -153,7 +164,10 @@ class LinkPager extends Widget
      */
     public function options(array $options)
     {
-        $this->options = $options;
+        $this->options = ArrayHelper::merge(
+            $this->options,
+            $options
+        );
 
         return $this;
     }

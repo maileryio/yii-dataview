@@ -29,7 +29,9 @@ class OffsetSummary extends Widget
     /**
      * @var array
      */
-    private array $options = [];
+    private array $options = [
+        'encode' => false,
+    ];
 
     /**
      * @var OffsetPaginator
@@ -73,7 +75,10 @@ class OffsetSummary extends Widget
      */
     public function options(array $options)
     {
-        $this->options = $options;
+        $this->options = ArrayHelper::merge(
+            $this->options,
+            $options
+        );
 
         return $this;
     }

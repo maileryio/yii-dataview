@@ -47,17 +47,23 @@ class GridView extends Widget
     /**
      * @var array
      */
-    private array $options = [];
+    private array $options = [
+        'encode' => false,
+    ];
 
     /**
      * @var array
      */
-    private array $headerRowOptions = [];
+    private array $headerRowOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var array
      */
-    private array $footerRowOptions = [];
+    private array $footerRowOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var bool
@@ -72,7 +78,9 @@ class GridView extends Widget
     /**
      * @var array
      */
-    private array $emptyTextOptions = [];
+    private array $emptyTextOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var string
@@ -82,22 +90,30 @@ class GridView extends Widget
     /**
      * @var array
      */
-    private array $captionOptions = [];
+    private array $captionOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var array
      */
-    private array $tableOptions = [];
+    private array $tableOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var array
      */
-    private array $headOptions = [];
+    private array $headOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var array|\Closure
      */
-    private $rowOptions = [];
+    private $rowOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var \Closure
@@ -136,7 +152,10 @@ class GridView extends Widget
      */
     public function options(array $options)
     {
-        $this->options = $options;
+        $this->options = ArrayHelper::merge(
+            $this->options,
+            $options
+        );
 
         return $this;
     }
@@ -147,7 +166,10 @@ class GridView extends Widget
      */
     public function headerRowOptions(array $headerRowOptions)
     {
-        $this->headerRowOptions = $headerRowOptions;
+        $this->headerRowOptions = ArrayHelper::merge(
+            $this->headerRowOptions,
+            $headerRowOptions
+        );
 
         return $this;
     }
@@ -158,7 +180,10 @@ class GridView extends Widget
      */
     public function footerRowOptions(array $footerRowOptions)
     {
-        $this->footerRowOptions = $footerRowOptions;
+        $this->footerRowOptions = ArrayHelper::merge(
+            $this->footerRowOptions,
+            $footerRowOptions
+        );
 
         return $this;
     }
@@ -191,7 +216,10 @@ class GridView extends Widget
      */
     public function emptyTextOptions(array $emptyTextOptions)
     {
-        $this->emptyTextOptions = $emptyTextOptions;
+        $this->emptyTextOptions = ArrayHelper::merge(
+            $this->emptyTextOptions,
+            $emptyTextOptions
+        );
 
         return $this;
     }
@@ -213,7 +241,10 @@ class GridView extends Widget
      */
     public function captionOptions(array $captionOptions)
     {
-        $this->captionOptions = $captionOptions;
+        $this->captionOptions = ArrayHelper::merge(
+            $this->captionOptions,
+            $captionOptions
+        );
 
         return $this;
     }
@@ -224,7 +255,10 @@ class GridView extends Widget
      */
     public function tableOptions(array $tableOptions)
     {
-        $this->tableOptions = $tableOptions;
+        $this->tableOptions = ArrayHelper::merge(
+            $this->tableOptions,
+            $tableOptions
+        );
 
         return $this;
     }
@@ -235,7 +269,10 @@ class GridView extends Widget
      */
     public function headOptions(array $headOptions)
     {
-        $this->headOptions = $headOptions;
+        $this->headOptions = ArrayHelper::merge(
+            $this->headOptions,
+            $headOptions
+        );
 
         return $this;
     }
@@ -246,7 +283,10 @@ class GridView extends Widget
      */
     public function rowOptions($rowOptions)
     {
-        $this->rowOptions = $rowOptions;
+        $this->rowOptions = ArrayHelper::merge(
+            $this->rowOptions,
+            $rowOptions
+        );
 
         return $this;
     }

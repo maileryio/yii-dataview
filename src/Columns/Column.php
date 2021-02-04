@@ -35,17 +35,23 @@ abstract class Column implements ColumnInterface
     /**
      * @var array
      */
-    protected array $headerOptions = [];
+    protected array $headerOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var array
      */
-    protected array $footerOptions = [];
+    protected array $footerOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var array|\Closure
      */
-    protected array $contentOptions = [];
+    protected array $contentOptions = [
+        'encode' => false,
+    ];
 
     /**
      * @var string
@@ -80,7 +86,10 @@ abstract class Column implements ColumnInterface
      */
     public function options(array $options)
     {
-        $this->options = $options;
+        $this->options = ArrayHelper::merge(
+            $this->options,
+            $options
+        );
 
         return $this;
     }
@@ -91,7 +100,10 @@ abstract class Column implements ColumnInterface
      */
     public function headerOptions(array $headerOptions)
     {
-        $this->headerOptions = $headerOptions;
+        $this->headerOptions = ArrayHelper::merge(
+            $this->headerOptions,
+            $headerOptions
+        );
 
         return $this;
     }
@@ -102,7 +114,10 @@ abstract class Column implements ColumnInterface
      */
     public function footerOptions(array $footerOptions)
     {
-        $this->footerOptions = $footerOptions;
+        $this->footerOptions = ArrayHelper::merge(
+            $this->footerOptions,
+            $footerOptions
+        );
 
         return $this;
     }
@@ -113,7 +128,10 @@ abstract class Column implements ColumnInterface
      */
     public function contentOptions($contentOptions)
     {
-        $this->contentOptions = $contentOptions;
+        $this->contentOptions = ArrayHelper::merge(
+            $this->contentOptions,
+            $contentOptions
+        );
 
         return $this;
     }
