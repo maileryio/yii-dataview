@@ -506,10 +506,10 @@ class GridView extends Widget
 
     /**
      * @param mixed $data
-     * @param int $index
+     * @param string|int $index
      * @return string
      */
-    private function renderTableRow($data, int $index)
+    private function renderTableRow($data, $index)
     {
         $cells = [];
         foreach ($this->columns as $column) {

@@ -82,10 +82,10 @@ class ActionColumn extends Column
 
     /**
      * @param mixed $data
-     * @param int $index
+     * @param string|int $index
      * @return string|null
      */
-    public function renderContentCell($data, int $index): ?string
+    public function renderContentCell($data, $index): ?string
     {
         if ($this->contentOptions instanceof \Closure) {
             $options = call_user_func($this->contentOptions, $data, $index, $this);
@@ -117,10 +117,10 @@ class ActionColumn extends Column
     /**
      * @param string $name
      * @param mixed $data
-     * @param int $index
+     * @param string|int $index
      * @return string|null
      */
-    public function renderSection(string $name, $data, int $index): ?string
+    public function renderSection(string $name, $data, $index): ?string
     {
         $fnMapContent = function (string $name) {
             switch ($name) {

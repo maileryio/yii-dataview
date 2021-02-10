@@ -144,10 +144,10 @@ class DetailView extends Widget
 
     /**
      * @param array $attribute
-     * @param int $index
+     * @param string|int $index
      * @return string
      */
-    private function renderAttribute(array $attribute, int $index): string
+    private function renderAttribute(array $attribute, $index): string
     {
         if (is_string($this->template)) {
             $captionOptions = Html::renderTagAttributes(ArrayHelper::getValue($attribute, 'captionOptions', []));

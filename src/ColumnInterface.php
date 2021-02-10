@@ -31,8 +31,8 @@ interface ColumnInterface
 
     /**
      * @param mixed $data
-     * @param int $index
+     * @param string|int $index
      * @return string|null
      */
-    public function renderContentCell($data, int $index): ?string;
+    public function renderContentCell($data, $index): ?string;
 }
