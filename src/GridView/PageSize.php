@@ -143,6 +143,6 @@ class PageSize extends Widget
             $content = $this->translator->translate('Show {input} entries', [], 'dataview');
         }
 
-        return Html::tag($tag, strtr($content, ['{input}' => $input]), $options);
+        return (string) Html::tag($tag, strtr($content, ['{input}' => $input]), $options);
     }
 }

@@ -111,7 +111,7 @@ class ActionColumn extends Column
             $content = $this->emptyText;
         }
 
-        return Html::tag('td', $content, $options);
+        return (string) Html::tag('td', $content, $options)->encode(false);
     }
 
     /**

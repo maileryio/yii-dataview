@@ -157,7 +157,7 @@ abstract class Column implements ColumnInterface
             return null;
         }
 
-        return Html::tag('col', '', $this->options);
+        return (string) Html::tag('col', '', $this->options);
     }
 
     /**
@@ -165,7 +165,7 @@ abstract class Column implements ColumnInterface
      */
     public function renderHeaderCell(): ?string
     {
-        return Html::tag('th', $this->header, $this->headerOptions);
+        return (string) Html::tag('th', $this->header, $this->headerOptions);
     }
 
     /**
@@ -173,6 +173,6 @@ abstract class Column implements ColumnInterface
      */
     public function renderFooterCell(): ?string
     {
-        return Html::tag('td', $this->footer, $this->footerOptions);
+        return (string) Html::tag('td', $this->footer, $this->footerOptions);
     }
 }

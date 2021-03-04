@@ -49,6 +49,6 @@ class SerialColumn extends Column
         $offset = ($this->paginator->getCurrentPage() - 1) * $this->paginator->getPageSize();
         $content = $offset + $index + 1;
 
-        return Html::tag('td', $content, $options);
+        return (string) Html::tag('td', $content, $options)->encode(false);
     }
 }

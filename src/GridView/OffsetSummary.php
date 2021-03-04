@@ -130,7 +130,7 @@ class OffsetSummary extends Widget
                     'dataview'
                 );
 
-                return Html::tag($tag, $content, $options);
+                return (string) Html::tag($tag, $content, $options);
             }
         } else {
             $page = $begin = $pageCount = 1;
@@ -149,7 +149,7 @@ class OffsetSummary extends Widget
                     'dataview'
                 );
 
-                return Html::tag($tag, $content, $options);
+                return (string) Html::tag($tag, $content, $options);
             }
         }
 

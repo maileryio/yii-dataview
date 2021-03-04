@@ -240,9 +240,9 @@ class LinkPager extends Widget
         }
         $options = $this->options;
         $tag = ArrayHelper::remove($options, 'tag', 'nav');
-        $html = Html::beginTag($tag, $options);
+        $html = Html::openTag($tag, $options);
         $html .= $this->renderPageButtons();
-        $html .= Html::endTag($tag);
+        $html .= Html::closeTag($tag);
 
         return $html;
     }
@@ -341,7 +341,8 @@ class LinkPager extends Widget
         $options = $this->listOptions;
         $tag = ArrayHelper::remove($options, 'tag', 'ul');
 
-        return Html::tag($tag, implode("\n", $buttons), $options);
+        return (string) Html::tag($tag, implode("\n", $buttons), $options)
+            ->encode(false);
     }
 
     /**
@@ -375,7 +376,8 @@ class LinkPager extends Widget
 
         $url = call_user_func($this->urlGenerator, ++$page);
 
-        return Html::tag($linkWrapTag, Html::a((string) $label, $url, $linkOptions), $options);
+        return (string) Html::tag($linkWrapTag, (string) Html::a((string) $label, $url, $linkOptions), $options)
+            ->encode(false);
     }
 
     /**

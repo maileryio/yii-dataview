@@ -139,7 +139,7 @@ class DetailView extends Widget
         $options = $this->options;
         $tag = ArrayHelper::remove($options, 'tag', 'table');
 
-        return Html::tag($tag, implode("\n", $rows), $options);
+        return (string) Html::tag($tag, implode("\n", $rows), $options)->encode(false);
     }
 
     /**
@@ -187,6 +187,6 @@ class DetailView extends Widget
         $options = $this->emptyTextOptions;
         $tag = ArrayHelper::remove($options, 'tag', 'div');
 
-        return Html::tag($tag, $this->emptyText, $options);
+        return (string) Html::tag($tag, $this->emptyText, $options);
     }
 }

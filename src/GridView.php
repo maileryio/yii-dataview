@@ -354,7 +354,7 @@ class GridView extends Widget
         $options = $this->options;
         $tag = ArrayHelper::remove($options, 'tag', 'div');
 
-        return Html::tag($tag, $this->renderItems(), $options);
+        return (string) Html::tag($tag, $this->renderItems(), $options)->encode(false);
     }
 
     /**
@@ -386,7 +386,7 @@ class GridView extends Widget
             $tableFooterAfterBody,
         ]);
 
-        return Html::tag('table', implode("\n", $content), $this->tableOptions);
+        return (string) Html::tag('table', implode("\n", $content), $this->tableOptions)->encode(false);
     }
 
     /**
@@ -401,7 +401,7 @@ class GridView extends Widget
         $options = $this->emptyTextOptions;
         $tag = ArrayHelper::remove($options, 'tag', 'div');
 
-        return Html::tag($tag, $this->emptyText, $options);
+        return (string) Html::tag($tag, $this->emptyText, $options);
     }
 
     /**
@@ -410,7 +410,7 @@ class GridView extends Widget
     private function renderCaption(): ?string
     {
         if (!empty($this->caption)) {
-            return Html::tag('caption', $this->caption, $this->captionOptions);
+            return (string) Html::tag('caption', $this->caption, $this->captionOptions);
         }
 
         return null;
@@ -428,7 +428,7 @@ class GridView extends Widget
         }
 
         if (!empty(array_filter($cols))) {
-            return Html::tag('colgroup', implode("\n", $cols));
+            return (string) Html::tag('colgroup', implode("\n", $cols));
         }
 
         return null;
@@ -445,14 +445,14 @@ class GridView extends Widget
             $cells[] = $column->renderHeaderCell();
         }
 
-        $content = Html::tag('tr', implode('', $cells), $this->headerRowOptions);
+        $content = (string) Html::tag('tr', implode('', $cells), $this->headerRowOptions)->encode(false);
 //        if ($this->filterPosition === self::FILTER_POS_HEADER) {
 //            $content = $this->renderFilters() . $content;
 //        } elseif ($this->filterPosition === self::FILTER_POS_BODY) {
 //            $content .= $this->renderFilters();
 //        }
 
-        return Html::tag('thead', "\n$content\n", $this->headOptions);
+        return (string) Html::tag('thead', "\n$content\n", $this->headOptions)->encode(false);
     }
 
     /**
@@ -465,7 +465,7 @@ class GridView extends Widget
             /* @var $column ColumnInterface */
             $cells[] = $column->renderFooterCell();
         }
-        $content = Html::tag('tr', implode('', $cells), $this->footerRowOptions);
+        $content = (string) Html::tag('tr', implode('', $cells), $this->footerRowOptions)->encode(false);
 //        if ($this->filterPosition === self::FILTER_POS_FOOTER) {
 //            $content .= $this->renderFilters();
 //        }
@@ -527,6 +527,6 @@ class GridView extends Widget
             $options['data-key'] = ++$index;
         }
 
-        return Html::tag('tr', implode('', $cells), $options);
+        return (string) Html::tag('tr', implode('', $cells), $options)->encode(false);
     }
 }
